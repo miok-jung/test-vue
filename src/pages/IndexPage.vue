@@ -1,22 +1,37 @@
 <template>
   <div>
     <h1>Index</h1>
-    <ckeditor
-      :editor="editor"
+    <!-- editor: ClassicEditor / InlineEditor -->
+    <!-- <ckeditor
+      :editor="ClassicEditor"
       v-model="editorData"
       :config="editorConfig"
-    ></ckeditor>
+      :disabled="true"
+    /> -->
+    <ckeditor
+      :editor="InlineEditor"
+      v-model="inlineEditorData"
+      :config="inlineEditorConfig"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+// import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import InlineEditor from '@ckeditor/ckeditor5-build-inline';
+import '@ckeditor/ckeditor5-build-classic/build/translations/ko';
 
-const editor = ClassicEditor;
+// NOTE: Classic Editor
+// const editorData = '<p>내용을 입력하세요.</p>';
+// const editorConfig = {
+//   language: 'ko',
+//   // toolbar: ['bold', 'italic', '|', 'link'],
+// };
 
-const editorData = '<p>Content of the editor.</p>';
-const editorConfig = {
-  // The configuration of the editor.
+// NOTE: Inline Editor
+const inlineEditorData = '';
+const inlineEditorConfig = {
+  language: 'ko',
 };
 </script>
 
